@@ -1,0 +1,41 @@
+{
+  "name": "Forkio",
+  "homepage" : ".",
+  "version": "1.0.0",
+  "description": "A real game-changer in the world of web development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "CI=true ./node_modules/.bin/gulp build && rm -rf public && mv build public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-js-minify": "0.0.3",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "jquery": "^3.5.1",
+    "sass": "^1.26.10"
+  },
+  "browserslist": {
+    "production": [
+      ">0.01%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 2 ie version"
+    ]
+  }
+}

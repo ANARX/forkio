@@ -1,0 +1,159 @@
+@import "variables";
+@import "mixins";
+
+.navbar {
+  background-color: $color_charcoal;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 45px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media #{$size_m} {
+    padding: 20px;
+  }
+  @media #{$size_s} {
+    padding: 24px 15px;
+    z-index: 9;
+  }
+}
+
+.navbar-logo {
+  text-decoration: none;
+}
+
+.navbar-logo__title {
+  vertical-align: middle;
+  color: $color_violet;
+  text-transform: uppercase;
+  font-size: 24px;
+
+  @media #{$size_s} {
+    display: none;
+  }
+}
+
+.navbar-logo__image {
+  width: 26px;
+  height: auto;
+  fill: $color_violet;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-logo:hover > .navbar-logo__title {
+  color: $color_white;
+}
+
+
+.navbar-logo:hover .navbar-logo__image {
+  fill: $color_white;
+}
+
+.navbar-menu {
+  flex-grow: 1;
+  text-align: right;
+  padding: 0;
+
+  @media #{$size_m} {
+    order: 1;
+    text-align: center;
+    flex-basis: 100%;
+  }
+  @media #{$size_s} {
+    position: absolute;
+    transition: 0.3s;
+    z-index: -1;
+    top: 90px;
+    left: 0;
+    width: 80%;
+    min-width: $size_menu_min;
+    background-color: $color_asphalt;
+    margin: 0 10%;
+  }
+
+  li {
+    display: inline-block;
+    @media #{$size_s} {
+      padding: 10px 0;
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid $color_gray;
+    }
+  }
+}
+
+@media #{$size_s} {
+  .menu-hidden {
+    transition: 0.3s;
+    top: -180px;
+  }
+}
+
+.navbar-menu__item {
+  display: inline-block;
+  color: $color_violet;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  text-decoration: none;
+
+  &:hover {
+    color: $color_white;
+  }
+
+  @media #{$size_m} {
+    font-size: 14px;
+    padding: 22px 14px 0;
+  }
+  @media #{$size_s} {
+    display: block;
+    color: $color_white;
+    border-left: 8px solid $color_asphalt;
+    padding: 15px 24px;
+    &:hover {
+      border-left: 8px solid $color_violet;
+    }
+  }
+}
+
+.navbar__buy-button {
+  @include ctaButton(40px);
+  width: 145px;
+  margin-left: 24px;
+  border-radius: 20px;
+
+
+  @media #{$size_s} {
+    margin-left: 0;
+  }
+}
+
+.navbar__hamburger-menu {
+  display: none;
+  @media #{$size_s} {
+    width: 40px;
+    height: 40px;
+
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: $color_white;
+    display: flex;
+  }
+}
+
+.navbar__menu-backstop {
+  display: none;
+
+  @media #{$size_s} {
+    display: block;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: $color_charcoal;
+    left: 0;
+  }
+}

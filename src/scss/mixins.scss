@@ -1,0 +1,37 @@
+@import "variables";
+
+@mixin coverImageSize {
+  width: 100%;
+  height: auto
+}
+
+@mixin text_notes {
+  font-size: 12px;
+  color: $color_gray;
+}
+
+@mixin gridAreaGenerator($prefix, $index) {
+  grid-area: $prefix+$index;
+}
+
+@mixin ctaButton($height) {
+  color: $color_white;
+  height: $height;
+  line-height: $height;
+  display: inline-block;
+  text-align: center;
+  text-transform: capitalize;
+  background-color: $color_violet;
+  text-decoration: none;
+  border: 1px solid $color_violet;
+
+  &:hover {
+    color: $color_violet;
+    background-color: $color_white;
+    border: 1px solid $color_gray;
+  }
+}
+
+@mixin soft_transition {
+  transition: .3s ease-out;
+}

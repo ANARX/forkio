@@ -1,0 +1,105 @@
+@import "variables";
+@import "mixins";
+
+.feedback {
+  width: 100%;
+  background: #4B3B4E url(../img/feedback-bg.png) no-repeat center top;
+  font-family: 'Lato', sans-serif;
+}
+
+.feedback__header {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: $color_white;
+  padding: 63px 0;
+  margin-bottom: 27px;
+}
+
+@for $i from 1 to 7 {
+  .feedback-table__logo#{$i} {
+    align-self: center;
+    @include gridAreaGenerator(feedback-logo, #{$i});
+  }
+}
+
+@for $i from 1 to 7 {
+  .feedback-table__feedback#{$i} {
+    @include gridAreaGenerator(feedback-text, #{$i});
+  }
+}
+
+.feedback-table__text {
+  color: $color_white;
+  line-height: 1.5;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin: 0 20px 50px;
+}
+
+.feedback__description {
+  font-size: 14px;
+  color: $color_violetDark;
+  line-height: 1.5;
+  margin: 15px 5%;
+  text-align: center;
+
+  @media #{$size_s} {
+    display: none;
+  }
+}
+
+.feedback__line {
+  margin: 0 5%;
+  background-color: $color_violetDark;
+  height: 1px;
+  border: none;
+}
+
+.feedback-table {
+  @include soft_transition;
+  margin: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  justify-items: center;
+  grid-template-areas:
+    "feedback-logo1 feedback-logo2 feedback-logo3"
+    "feedback-text1 feedback-text2 feedback-text3"
+    "feedback-logo4 feedback-logo5 feedback-logo6"
+    "feedback-text4 feedback-text5 feedback-text6";
+
+  @media #{$size_m} {
+    @include soft_transition;
+    margin: 0 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 23px;
+    grid-template-areas:
+    "feedback-logo1 feedback-logo2"
+    "feedback-text1 feedback-text2"
+    "feedback-logo3 feedback-logo4"
+    "feedback-text3 feedback-text4"
+    "feedback-logo5 feedback-logo6"
+    "feedback-text5 feedback-text6";
+  }
+
+  @media #{$size_s} {
+    @include soft_transition;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "feedback-logo1"
+    "feedback-text1"
+    "feedback-logo2"
+    "feedback-text2"
+    "feedback-logo3"
+    "feedback-text3"
+    "feedback-logo4"
+    "feedback-text4"
+    "feedback-logo5"
+    "feedback-text5"
+    "feedback-logo6"
+    "feedback-text6";
+  }
+}

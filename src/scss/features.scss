@@ -1,0 +1,138 @@
+@import "variables";
+@import "mixins";
+
+.features {
+  background-color: $color_lightGray;
+  padding: 45px 0 20px 85px;
+
+  @media #{$size_m} {
+    padding: 45px 0 20px 3%;
+  }
+
+  @media #{$size_m} {
+    padding: 50px 0 20px 50px;
+  }
+
+  @media #{$size_m} {
+    padding: 20px 0 20px 20px;
+  }
+}
+
+.features-table {
+  display: grid;
+  grid-column-gap: 25px;
+  grid-template-columns: 120px 0.8fr 1.2fr;
+  grid-template-areas:
+    "feature-logo-1 feature-1-info features-table__header"
+    "feature-logo-1 feature-1-info features-illustration"
+    "feature-logo-2 feature-2-info features-illustration"
+    "feature-logo-3 feature-3-info features-illustration"
+    "feature-logo-4 feature-4-info features-illustration";
+
+
+  @media #{$size_m} {
+    grid-template-columns: 120px 1fr;
+    grid-gap: 20px;
+    grid-template-areas:
+    "features-table__header features-table__header"
+    "feature-logo-1 feature-1-info"
+    "feature-logo-2 feature-2-info"
+    "feature-logo-3 feature-3-info"
+    "feature-logo-4 feature-4-info"
+    "features-illustration features-illustration";
+  }
+
+  @media #{$size_s} {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "features-table__header"
+    "feature-logo-1"
+    "feature-1-info"
+    "feature-logo-2"
+    "feature-2-info"
+    "feature-logo-3"
+    "feature-3-info"
+    "feature-logo-4"
+    "feature-4-info"
+    "features-illustration"
+  }
+}
+
+@for $i from 1 to 5 {
+  .feature-info_#{$i} {
+    grid-area: feature-#{$i}-info;
+
+    @media #{$size_m} {
+      padding-right: 50px;
+    }
+
+    @media #{$size_s} {
+      padding-right: 20px;
+    }
+
+  }
+}
+
+@for $i from 1 to 5 {
+  .feature-#{$i}-logo {
+    grid-area: feature-logo-#{$i};
+    margin: 0 auto;
+
+    @media #{$size_s} {
+      margin: 0 auto;
+    }
+  }
+}
+
+.features-table__header {
+  grid-area: features-table__header;
+  font-size: 32px;
+  font-weight: bold;
+  color: $color_violet;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  &::before {
+    content: "<";
+  }
+
+  &::after {
+    content: ">";
+  }
+
+  @media #{$size_m} {
+    text-align: center;
+    padding: 0 5%;
+  }
+
+  @media #{$size_s} {
+    text-align: center;
+    padding: 0 5%;
+    margin-bottom: 0;
+  }
+}
+
+.features-table__illustration {
+  width: 100%;
+  height: auto;
+  grid-area: features-illustration;
+}
+
+.feature-info__label {
+  color: $color_darkGray;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+  @media #{$size_s} {
+    text-align: center;
+  }
+}
+
+
+.feature-info__text {
+  @include text_notes;
+
+  @media #{$size_s} {
+    text-align: center;
+  }
+}

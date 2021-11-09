@@ -1,0 +1,90 @@
+@import "variables";
+@import "mixins";
+
+.cover {
+  background-color: black;
+  position: relative;
+}
+
+.cover__header {
+  color: $color_white;
+  font-size: 60px;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cover__text {
+  font-size: 18px;
+  text-align: center;
+  color: $color_violet;
+  margin: 10px;
+}
+
+.cover__version-info {
+  @include text_notes;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cover__info-container {
+  padding: 30px;
+
+  @media #{$size_m} {
+    padding: 50px 10px;
+  }
+}
+
+.cover__image_l {
+  @include coverImageSize;
+
+  @media #{$size_m} {
+    display: none;
+  }
+}
+
+.cover__image_m {
+  @include coverImageSize;
+  display: none;
+  padding-bottom: 7%;
+
+  @media #{$size_m} {
+    display: inline-block;
+  }
+
+  @media #{$size_s} {
+    display: none;
+  }
+}
+
+.cover__image_s {
+  @include coverImageSize;
+  display: none;
+  padding-bottom: 7%;
+
+  @media #{$size_s} {
+    display: inline-block;
+  }
+}
+
+.cover__download-now-button {
+  @include ctaButton(60px);
+
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 390px;
+  border-radius: 30px;
+  font-size: 16px;
+
+  @media #{$size_s} {
+    @include ctaButton(40px);
+    width: 290px;
+    font-size: 12px;
+    border-radius: 20px;
+    bottom: -20px;
+  }
+}
+
